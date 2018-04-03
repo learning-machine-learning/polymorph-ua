@@ -1,7 +1,10 @@
+# NOTE used by score_advertisers.py
+
 import numpy as np
 import pandas as pd
 from score_advertisers import score_advertisers, score_advertisers_power
 
+####### NORMAL SCORING FUNC EXAMPLES #######
 identity = lambda x: x
 
 def sigmoid(x):
@@ -9,6 +12,9 @@ def sigmoid(x):
 
 def sigmoid2(x):
     return 4*(1 / (1 + math.exp(-x)) - 0.5)
+
+
+####### POWER SCORING FUNC EXAMPLES #######
 
 # scaled by mean
 # above 1 means that the metric was > mean
@@ -19,6 +25,7 @@ def with_mean_wrapper(table):
     scored = score_advertisers(table, lambda x: x)
     mean = np.mean(scored)
     return lambda x: with_mean(x, mean)
+
 
 # if max sample is 1, everything stays the same
 def linear_by_max(x, max_num):
