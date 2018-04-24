@@ -98,10 +98,8 @@ df = df.dropna(subset=[c for c in df.columns if c not in ["referer", "url"]])
 for c in df.columns:
     if c.endswith('timestamp'):
         df[c] = [timestamp_to_local_hour(timezone, timestamp) for timezone, timestamp in zip(df['geo_timezone'].values,df[c].values)]
-        df_pos[c] = [timestamp_to_local_hour(timezone, timestamp) for timezone, timestamp in zip(df_pos['geo_timezone'].values,df_pos[c].values)]
     if c in ["referer", "url"]:
         df[c] = df[c].apply(replace_NaN_with_empty_string)
-        df_pos[c] = df_pos[c].apply(replace_NaN_with_empty_string)
 
 append_keyword_cols(df)
 
