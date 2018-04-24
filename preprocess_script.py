@@ -3,7 +3,11 @@ import sys
 import pickle
 import datetime
 import pytz
+from urllib.parse import unquote
+from collections import defaultdict
+from urllib.parse import unquote, urlparse
 from pytz import timezone
+import re
 
 '''README
 
@@ -26,6 +30,50 @@ def replace_NaN_with_empty_string(val):
     if (isinstance(val, float) and math.isnan(val)) or val == None:
         return ""
     return val
+
+#url referer keyword handling functions
+def extract_parts(url):
+    if url == None:
+        url = ''
+    o = urlparse(url)
+    return o.netloc, o.path
+
+def not_number(s):
+    try:
+        float(s)
+        return False
+    except ValueError:
+        return True
+
+def produce_keywords(path):
+    MIN_LENGTH = 3
+    BANNED_WORDS = ["html"]
+    words = re.findall("[\w]+", path)
+    filtered = [word for word in words if len(word) >= MIN_LENGTH and \
+                word not in BANNED_WORDS and not_number(word)]
+    return filtered
+
+def append_keyword_cols(df):
+    domains = {"url_domain": [], "ref_domain": []}
+    keywords = {"url_keywords": [], "ref_keywords": [], "keywords": []}
+    
+    for url in df["url"]:
+        domain, path = extract_parts(url)
+        words = produce_keywords(path)
+        domains["url_domain"].append(domain)
+        keywords["url_keywords"].append(words)
+    for ref in df["referer"]:
+        url = unquote(ref)
+        domain, path = extract_parts(url)
+        words = produce_keywords(path)
+        domains["ref_domain"].append(domain)
+        keywords["ref_keywords"].append(words)
+    
+    df['url_domain'] = domains['url_domain']
+    df['red_domain'] = domains['ref_domain']
+    for i, j in zip(keywords['url_keywords'], keywords['ref_keywords']):
+        keywords['keywords'].append(i+j)
+    df['keywords'] = keywords['keywords']
 
 file_path = sys.argv[1]
 save_path = sys.argv[2]
@@ -54,6 +102,8 @@ for c in df.columns:
     if c in ["referer", "url"]:
         df[c] = df[c].apply(replace_NaN_with_empty_string)
         df_pos[c] = df_pos[c].apply(replace_NaN_with_empty_string)
+
+append_keyword_cols(df)
 
 #Open our hdf files
 df_store = pd.HDFStore(save_path)
