@@ -75,6 +75,7 @@ def append_keyword_cols(df):
         keywords['keywords'].append(i+j)
     df['keywords'] = keywords['keywords']
 
+#get and set input arguments
 file_path = sys.argv[1]
 save_path = sys.argv[2]
 
@@ -84,7 +85,7 @@ if save_path == None or save_path == "":
 with open('data/columns_keep.pkl', 'rb') as f:
     columns_keep = pickle.load(f)
 
-print(file_path)
+print("Reading from ", file_path)
 
 df = pd.concat(pd.read_json(file_path, lines=True, chunksize=100000))
 
@@ -102,6 +103,8 @@ for c in df.columns:
         df[c] = df[c].apply(replace_NaN_with_empty_string)
 
 append_keyword_cols(df)
+
+print("Saving to ", save_path)
 
 #Open our hdf files
 df_store = pd.HDFStore(save_path)
