@@ -1,1 +1,0 @@
-The lookup folders (e.g. ad_network_id and advertiser_id) would go here, each with their corresponding map.json file.
