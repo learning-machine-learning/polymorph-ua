@@ -80,7 +80,7 @@ file_path = sys.argv[1]
 save_path = sys.argv[2]
 
 if save_path == None or save_path == "None":
-    save_path = file_path + "processed.h5"
+    save_path = file_path + "_processed.h5"
 
 with open('data/columns_keep.pkl', 'rb') as f:
     columns_keep = pickle.load(f)
