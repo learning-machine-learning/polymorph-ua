@@ -56,6 +56,6 @@ Relevant Files:
 
 * `GradientBoost_Logistic.ipynb` contains
 * `Xgboost_Kush - No Feature Drop.ipynb` contains
-* `XGBoost_Skyler.ipynb` contains
+* `XGBoost_Skyler.ipynb` contains multiple XGBoost implementations with balanced/biased training sets, batch training, and adjusted hyperparameters
 * `XgboostKush-Final.ipynb` contains
 * `XgboostNew.ipynb` contains 
