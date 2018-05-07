@@ -12,7 +12,7 @@ Contains notebooks for visualizing feature distributions and other visualization
 Contains code for field-aware factorization machines.
 
 Relevant Files:
-* `FFM_Boris.ipynb` contains  
+* `FFM_Boris.ipynb` contains all the code required to create the FFM model (i.e. feature engineering, text file conversion, training and testing).
 
 
 ## /logistic regression w/ SGD/
