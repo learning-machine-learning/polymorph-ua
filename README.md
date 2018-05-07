@@ -52,8 +52,8 @@ Contains code for gradient boosting with xgboost. Gradient boosting was approach
 
 Relevant Files:
 
-GradientBoost_Logistic.ipynb contains
-Xgboost_Kush - No Feature Drop.ipynb contains
-XGBoost_Skyler.ipynb contains
-XgboostKush-Final.ipynb contains
-XgboostNew.ipynb contains 
+* `GradientBoost_Logistic.ipynb` contains
+* `Xgboost_Kush - No Feature Drop.ipynb` contains
+* `XGBoost_Skyler.ipynb` contains
+* `XgboostKush-Final.ipynb` contains
+* `XgboostNew.ipynb` contains 
