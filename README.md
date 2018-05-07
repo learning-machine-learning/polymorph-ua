@@ -2,7 +2,7 @@
 Please see our report for results and discussion on numbers and findings.
 
 ## /aws-scripts/
-Contains code that formats the data from s3://adsnative-sigmoid. These scripts were used to filter the raw data (e.g. filter and keep only requests with empty bid_requests lists) and combine filtered data files into combined hourly and daily files.
+Contains code that formats the data from `s3://adsnative-sigmoid`. These scripts were used to filter the raw data (e.g. filter and keep only requests with empty bid_requests lists) and combine filtered data files into combined hourly and daily files.
 
 ## /EDA-Exploratory-Data-Analysis
 Contains notebooks for visualizing feature distributions and other visualizations on the data. Done only for direct auctions.
@@ -14,12 +14,11 @@ Relevant Files:
 * `FFM_Boris.ipynb` contains  
 
 
-
 ## /logistic regression w/ SGD/
 Contains code for logistic regression with stochastic gradient descent.
 
 Relevant Files: 
-*`Polymorph_Jihan.ipynb` contains
+* `Polymorph_Jihan.ipynb` contains
 
 
 ## /naive-logistic/
