@@ -7,6 +7,7 @@ Contains code that formats the data from `s3://adsnative-sigmoid`. These scripts
 ## /EDA-Exploratory-Data-Analysis
 Contains notebooks for visualizing feature distributions and other visualizations on the data. Done only for direct auctions.
 
+
 ## /FFMs/
 Contains code for field-aware factorization machines.
 
@@ -19,6 +20,7 @@ Contains code for logistic regression with stochastic gradient descent.
 
 Relevant Files: 
 * `Polymorph_Jihan.ipynb` contains
+* The `models` folder contains files for all the models used for logistic with SGD. These model files are stored as ...
 
 
 ## /naive-logistic/
@@ -38,6 +40,7 @@ Contains code that does all the preprocessing on the data. E.g. drops unwanted c
 Relevant Files:
 * `Jihan_Preprocess.ipynb` contains
 * `preprocess_script.py` contains 
+* The `data` folder contains a .pkl file of all the columns we decided to keep.
 
 
 ## /Random-Forest/
