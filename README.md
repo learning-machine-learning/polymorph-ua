@@ -4,6 +4,22 @@ Please see our report for results and discussion on numbers and findings.
 ## /aws-scripts/
 Contains code that formats the data from `s3://adsnative-sigmoid`. These scripts were used to filter the raw data (e.g. filter and keep only requests with empty bid_requests lists) and combine filtered data files into combined hourly and daily files.
 
+Relevant Files:
+
+
+New Scripts (from most recent merged-logs data):
+* `filterer-negatives-only.py`	filters data from all auctions and keeps .2% of all negatives. `filterer-positives-only.py` filters data from all auctions and keeps positives (clicks) from all auctions.
+* `combiner-hourly-negs-merged-logs.py` combines all 128 parts of every hour for negatives into one file and `combiner-hourly-pos-merged-logs.py`	does the same with positives.
+* `combiner-daily-merged-logs.py`combines all 24 hours of data in a day into one file.
+
+
+
+
+
+Old Scripts (from initial data):
+* `filterer-all-cpc.py`	filters and keeps only ad requests with rate_metric of CPC and empty bid_requests lists. `combiner-all-days.py` combines data from all days into one file, `combiner-daily-old.py` combines data from all 24 hours of a day into one file, `combiner-hourly-old.py` combines data from all 128 parts of an hour into one file. `grouped_cnts` groups publisher and advertiser counts for publisher and advertiser analysis.
+
+
 ## /EDA-Exploratory-Data-Analysis
 Contains notebooks for visualizing feature distributions and other visualizations on the data. Done only for direct auctions.
 
