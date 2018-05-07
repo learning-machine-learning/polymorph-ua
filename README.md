@@ -34,6 +34,9 @@ Relevant Files:
 ## /logistic regression w/ SGD/
 Contains code for logistic regression with stochastic gradient descent.
 
+Mid-semester deliverable presentation can be found at: https://docs.google.com/presentation/d/1oWV5I8Jf-VWqd2ZWzUoYeQO1sQXaV7NzCJWDQ8yOyGA/edit?usp=sharing
+Final deliverable presentation can be found at: https://docs.google.com/presentation/d/1lQrbbgPwFtSiX0Fj5ig7xUyr2FzzAFk6AtOSM2jBgRY/edit?usp=sharing
+
 Relevant Files: 
 * `Polymorph_Jihan.ipynb` contains
 * The `models` folder contains files for all the models used for logistic with SGD. These model files are stored as ...
