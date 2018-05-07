@@ -1,6 +1,10 @@
 # Code Directory
 Please see our report for results and discussion on numbers and findings.
 
+Mid-semester deliverable presentation can be found at: https://docs.google.com/presentation/d/1oWV5I8Jf-VWqd2ZWzUoYeQO1sQXaV7NzCJWDQ8yOyGA/edit?usp=sharing
+
+Final deliverable presentation can be found at: https://docs.google.com/presentation/d/1lQrbbgPwFtSiX0Fj5ig7xUyr2FzzAFk6AtOSM2jBgRY/edit?usp=sharing
+
 ## /aws-scripts/
 Contains code that formats the data from `s3://adsnative-sigmoid`. These scripts were used to filter the raw data (e.g. filter and keep only requests with empty bid_requests lists) and combine filtered data files into combined hourly and daily files.
 
@@ -33,9 +37,6 @@ Relevant Files:
 
 ## /logistic regression w/ SGD/
 Contains code for logistic regression with stochastic gradient descent.
-
-Mid-semester deliverable presentation can be found at: https://docs.google.com/presentation/d/1oWV5I8Jf-VWqd2ZWzUoYeQO1sQXaV7NzCJWDQ8yOyGA/edit?usp=sharing
-Final deliverable presentation can be found at: https://docs.google.com/presentation/d/1lQrbbgPwFtSiX0Fj5ig7xUyr2FzzAFk6AtOSM2jBgRY/edit?usp=sharing
 
 Relevant Files: 
 * `Polymorph_Jihan.ipynb` contains
