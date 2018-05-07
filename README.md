@@ -27,8 +27,9 @@ Relevant Files:
 Contains code for naive logistic regression.
 
 Relevant Files:
-* `LogisticRegression_AllCols.ipynb` contains
-* `LogisticRegression_DropCols.ipynb` contains
+* `LogisticRegression_AllCols.ipynb` contains all the code required to one hot encode the preprocessed data, train the Naive Logistic Regression model using all features, and produce the results for the testing data. It also contains the code to perform grid search to find optimal hyper-parameters.  
+
+* `LogisticRegression_DropCols.ipynb` contains all the code required to one hot encode the preprocessed data, train the Naive Logistic Regression model excluding count columns, and produce the results for the testing data. It also contains the code to perform grid search to find optimal hyper-parameters.  
 
 
 ## /old_code/
@@ -54,7 +55,6 @@ Contains code for gradient boosting with xgboost. Gradient boosting was approach
 
 Relevant Files:
 
-* `GradientBoost_Logistic.ipynb` contains
 * `Xgboost_Kush - No Feature Drop.ipynb` contains
 * `XGBoost_Skyler.ipynb` contains multiple XGBoost implementations with balanced/biased training sets, batch training, and adjusted hyperparameters
 * `XgboostKush-Final.ipynb` contains
