@@ -74,4 +74,5 @@ Relevant Files:
 * `Xgboost_Kush - No Feature Drop.ipynb` contains
 * `XGBoost_Skyler.ipynb` contains multiple XGBoost implementations with balanced/biased training sets, batch training, and adjusted hyperparameters
 * `XgboostKush-Final.ipynb` contains
-* `XgboostNew.ipynb` contains 
+* `XgboostNew.ipynb` contains XGBoost implemented from its sparse matrices in xgb.DMatrix. The OHE encoding is still using the older version of the function and not the newer one, which allows it to train and test a much larger dataset. Shows the predictions predicted from the testing data, which varies more evenly between 0 and 1 given a balanced training set.
+
