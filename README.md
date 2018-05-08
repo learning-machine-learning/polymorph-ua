@@ -10,7 +10,7 @@ In order to run correctly, all models need two things:
 * `columns_keep.pkl`, which contains the columns to keep as a result of preprocessing.
 * Actual data to train on, which is in the format of an .h5 file. .h5 format is used, as reading an .h5 file is way faster than reading a .json file.
 
-`columns_keep.pkl` is already in the `preprocessing/` folder in the repo, so all that is left in order to run each model is to create an .h5 file of data. To do this, please run `preprocessing_script.py`, which is also in the `preprocessing/` folder. Make sure the input is a .json file. Move the resulting .h5 files into the `data/` folder.
+`columns_keep.pkl` is already in the `preprocessing/data/` folder in the repo, so all that is left in order to run each model is to create an .h5 file of data. To do this, please run `preprocessing_script.py`, which is also in the `preprocessing/` folder. Make sure the input is a .json file. Move the resulting .h5 files into the `preprocessing/data/` folder (or wherever you want to store the input data).
 
 Lastly, in the model's code (in each `.ipynb` notebook), change the path of the .h5 file to point to whatever relative path your  `/data` folder is in. This will be `../preprocessing/data/[filename].h5` if using the current repository structure.
 
