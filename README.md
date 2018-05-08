@@ -1,9 +1,12 @@
 # Code Directory
-Please see our report for results and discussion on numbers and findings.
+Please see our report (included in the repo) for results and discussion on numbers and findings.
 
 Mid-semester deliverable presentation can be found at: https://docs.google.com/presentation/d/1oWV5I8Jf-VWqd2ZWzUoYeQO1sQXaV7NzCJWDQ8yOyGA/edit?usp=sharing
 
 Final deliverable presentation can be found at: https://docs.google.com/presentation/d/1lQrbbgPwFtSiX0Fj5ig7xUyr2FzzAFk6AtOSM2jBgRY/edit?usp=sharing
+
+# Important note for loading in data
+For loading in data, all notebooks load in files from a relative path, loading in .h5 files (created after preprocessing) from `data/`. In the repo, in `preprocessing/`, there is a `data/` folder containing a .pkl of the columns to keep after preprocessing. To make sure the code works correctly, please move a copy of the `data/` folder into the same directory as any notebook you are trying to execute. Additionally, to create the .h5 files, please run `preprocessing_script`, which is also in the `preprocessing/` folder. Move the .h5 files into your copy of the `data/` folder.
 
 ## /aws-scripts/
 Contains code that formats the data from `s3://adsnative-sigmoid`. These scripts were used to filter the raw data (e.g. filter and keep only requests with empty bid_requests lists) and combine filtered data files into combined hourly and daily files.
