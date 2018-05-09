@@ -49,8 +49,8 @@ Relevant Files:
 Contains code for logistic regression with stochastic gradient descent.
 
 Relevant Files: 
-* `Polymorph_Jihan.ipynb` contains
-* The `models` folder contains files for all the models used for logistic with SGD. These model files are stored as ...
+* `Polymorph_Jihan.ipynb` contains a variety of documented functions. The first half of the functions deal with generating batch one hot encoding labels, and using those labels to get batches of batch one hot encoded data. These functions are followed by the code that performs the actual batch training, using 14 different presaved models in the models/ folder. The rest of the notebook contains functions pertaining to the mid-semester deliverable, including feature scoring, logistic regression grid search, and low level EDA.
+* The `models` folder contains files for all the models used for logistic with SGD. These model files are stored as pickle files, and can be loaded as such. The _v2 models were trained on features excluding those we deemed to be potentially calculated after the impression, and the other 7 were trained on all features. They each have log loss with a l2 penalty and alpha level of 0.1^i, where i is the model number.
 
 
 ## /naive-logistic/
@@ -69,8 +69,8 @@ Most of the code from mid-semester deliverable and before. All of this data was 
 Contains code that does all the preprocessing on the data. E.g. drops unwanted columns and saves processed data into .h5 files for further use.
 
 Relevant Files:
-* `Jihan_Preprocess.ipynb` contains
-* `preprocess_script.py` contains 
+* `Jihan_Preprocess.ipynb` contains the same overall process as preprocess_script.py, but it explores and contains analysis on how and why decisions for preprocessing were made, as well as some EDA into post-mid-semester deliverable data, which contained new features such as keywords and url.
+* `preprocess_script.py` contains everything needed to preprocess the original json files for NaN values, storing the resulting preprocessed data as an h5 file. Documentation on how to run the script is commented in the top of the file.
 * The `data` folder contains a .pkl file of all the columns we decided to keep.
 
 
