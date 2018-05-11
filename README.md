@@ -78,15 +78,15 @@ Relevant Files:
 Contains code for random forests.
 
 Relevant Files:
-* `Random Forest Hyper-parameter Kush.ipynb` contains 
+* `Random Forest Hyper-parameter Kush.ipynb` contains feature selection, filtering and hyparameter tuning for a Random Forest model run on the pre-midsemester deliverable data. Contains documentation about the best scores achieved with this model and why we moved away from it.
 
 ## /xgboost/
 Contains code for gradient boosting with xgboost. Gradient boosting was approached by 3 people, so work from all 3 of these members are included in here.
 
 Relevant Files:
 
-* `Xgboost_Kush - No Feature Drop.ipynb` contains
+* `Xgboost_Kush - No Feature Drop.ipynb` contains XGboost model trained on 80:1 data ratio and using all columns. Resulted in very high f1 score, but on a smaller subset of the data. Can change dropna parameter at top to change number of used columns.
 * `XGBoost_Skyler.ipynb` contains multiple XGBoost implementations with balanced/biased training sets, batch training, and adjusted hyperparameters
-* `XgboostKush-Final.ipynb` contains
+* `XgboostKush-Final.ipynb` contains XGBoost final implmention trained and tested on latest data using best preprocessing techniques. This implementation used the XGBoost sklearn wrapper, so potentially may result in different performance. Also contains the probability to CTR conversion functions.
 * `XgboostNew.ipynb` contains XGBoost implemented from its sparse matrices in xgb.DMatrix. The OHE encoding is still using the older version of the function and not the newer one, which allows it to train and test a much larger dataset. Shows the predictions predicted from the testing data, which varies more evenly between 0 and 1 given a balanced training set.
 
