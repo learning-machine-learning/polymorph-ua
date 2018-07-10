@@ -1,0 +1,59 @@
+#!/usr/bin/python3
+
+import os
+import boto3
+import itertools
+import pandas as pd
+
+#initialize s3 client connection
+s3 = boto3.resource('s3')
+s3client = boto3.client('s3')
+
+#initialize codebase bucket connection
+cb_bucket_name = 'codebase-pm-ua-filtered'
+cb_bucket = s3.Bucket(name=cb_bucket_name)
+
+#generate all the file names in the format of '11/01/part-00001.gz' indicating day 11, hour 1, part 1.
+file_keys = ['{}/{:02d}/part-{:05d}.gz'.format(x1, x2, x3) for x1, x2, x3 in itertools.product(range(11, 16), range(24), range(128))]
+temp_name = 'temp.gz'
+
+#make a dataframe to hold the accumulated counts
+grouped_df = pd.DataFrame()
+
+for f_key in file_keys:
+	print(f_key)
+	try:
+		#try to download the file with name f_key and read into dataframe
+		cb_bucket.download_file(Key=f_key, Filename=temp_name)
+		df = pd.read_json(temp_name, lines=True, compression='gzip')
+
+		#select the approproate grouped and aggregated column naames and drop all nulls since that will mess up the counts
+		df = df.loc[:,['pub_network_id', 'advertiser_id', 'ua_device_type', 'c_cnt', 'vi_cnt', 'i_cnt']].dropna()
+		#group by publisher id, then advertiser id, then devide type, and aggregate counts for click count, viewable impression count, and impression count
+		df = df.groupby(['pub_network_id', 'advertiser_id', 'ua_device_type'])['c_cnt', 'vi_cnt', 'i_cnt'].sum()
+		grouped_df = pd.concat([grouped_df, df]).groupby(['pub_network_id', 'advertiser_id', 'ua_device_type'])['c_cnt', 'vi_cnt', 'i_cnt'].sum()
+	except: 
+		print('error: {}'.format(f_key))
+
+#read in the publisher id to publisher name lookup table
+pub_map_df = pd.read_json('../files/pub_network_id_map.json')
+pub_map_df.drop('pub_network_dynamic', axis=1, inplace=True)
+
+#read in the advertiser id to advertiser name lookup table
+ad_map_df = pd.read_json('../files/advertiser_id_map.json')
+
+print("Merging with advertisers and publishers...")
+#associate advertiser names and publisher names with appropriate aggregated rows
+grouped_df.reset_index(inplace=True)
+merged_df = pd.merge(grouped_df, pub_map_df, how='left', on='pub_network_id')
+merged_df = pd.merge(merged_df, ad_map_df, how='left', on='advertiser_id')
+
+print('Converting to pickle...')
+#store as pickle file
+merged_df.to_pickle('../files/grouped_cnts.pkl.gz', compression='gzip')
+print('Done.')
+try:
+    os.remove(temp_name)
+except OSError:
+    pass
+
